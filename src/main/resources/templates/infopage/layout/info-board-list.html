@@ -1,0 +1,23 @@
+<html xmlns:th="//www.thymeleaf.org">
+	<body>
+		<table id="info-board-table" class="board-wrap">
+			<thead>
+				<tr class="flex between">
+					<th>글번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>선택</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="flex between info-board-list" th:each="list:${list}">
+					<td><a th:href="|/board/${list.bno}|" th:text="${list.bno}"></a></td>
+					<td th:text="${list.subject}">제목</td>
+					<td th:text="${list.writer}">작성자</td>
+					<td><input type="checkbox" id="option1" name="options"
+						th:value="${list.bno}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

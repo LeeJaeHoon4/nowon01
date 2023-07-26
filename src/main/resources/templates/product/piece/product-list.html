@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<div class="prepare-wrap" th:if="${#lists.isEmpty(list)}">
+		<p class="prepare">상품이 준비중입니다.</p>
+	</div>
+	<li  th:each="dto, iterStat : ${list}" class="p-li">
+		<a th:href="|/product/detail/${dto.no}|">
+			<p class="p-num" th:text="${iterStat.index+1}">인덱스</p>
+			<div class="p-img" th:style="|background-image: url('${dto.imgUrl}')|"></div>
+			<div class="small-wrap">
+				<p th:text="${dto.title}">상품명</p>
+				<p th:text="${dto.simple}">간단설명</p>
+				<p th:text="|${dto.price} 원|">가격</p>
+			</div>
+		</a>
+	</li>
+	<div class="more-flag" th:data-cNo="${more.cNo}" th:data-more="${more.more}"></div>
+</html>

@@ -1,0 +1,51 @@
+@import url("/css/common.css");
+.wrap{width:1200px; margin:0 auto;}
+
+section{
+	width: 100%;	
+}
+a:hover{cursor: pointer;}
+.header-section{
+	border-top :1px solid #dadada;
+	border-bottom :1px solid #dadada;
+	padding:0.5em 0;
+}
+
+.header-section-nav>div.flex{
+	width: 990px;
+	margin:0 auto;
+}
+.header-section-nav div a{
+	font-size: 13px;
+	color:#666;
+	white-space : nowrap;
+}
+.header-section-nav div a:not(:last-child)::after{
+	content:"";
+	border-left: 1px solid #666;
+	margin-left: 0.5em;
+}
+
+#header-main-banner{
+	width:600px;
+	padding:0;
+}
+#header-main-banner>ul{
+	font-size: 2em;
+	margin-top: 0px;
+}
+
+#header-main-banner>ul li{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 0.5em;
+}
+
+#header-main-banner>ul li a{
+	white-space : nowrap;
+}
+.header-logo{
+	font-family: 'monoton';
+	font-size: 48px;
+}

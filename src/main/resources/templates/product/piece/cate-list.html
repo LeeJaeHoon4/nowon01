@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- ajax의 결과물 데이터로 활용될 예정입니다. -->
+<ol id="cate-wrap">
+	<li th:each="dto : ${list}">
+		<a onclick="cateClicked(this)" th:value="${dto.cno}" class="sub-cate" th:text="${dto.name}">서브메뉴</a>
+	</li>
+</ol>
+</html>

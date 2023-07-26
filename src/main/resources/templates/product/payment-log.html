@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ /layout.html :: basic(~{this::head}, ~{this::main}) }">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/product/payment-log.css">
+	<script type="text/javascript" src="/js/product/payment-log.js"></script>
+</head>
+	<body>
+		<main>
+			<h1>메인영역</h1>
+			<div class="wrap">
+				<div class="page-title">
+					<p>주문 정보</p>
+				</div>
+				<section id="payment-list">
+					<h1>주문 내역</h1>
+					<div class="ul-wrap">
+					
+					<!-- 상품 목록이 들어갑니다 -->
+						
+					</div>
+				</section>
+			</div>
+		</main>
+	</body>
+</html>

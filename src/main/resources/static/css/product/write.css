@@ -1,0 +1,100 @@
+@charset "UTF-8";
+@import url("/css/common.css");
+
+main .wrap {
+	width: 1000px;
+	margin-top: 50px;
+}
+
+#products form p{
+	width: 100%;
+	height: 120px;
+}
+
+#products form p > label 
+, #products > div > form > label{
+	display: block;
+	width: 100%;
+	height: 33%;	
+	font-size: 20px;
+	padding-top: 10px;
+}
+
+#products form input {
+	width: 100%;
+	height: 60%;
+	padding-left: 10px;
+	font-size: 20px;
+}
+
+#products form input::placeholder {
+	font-size: 20px;
+}
+
+#products form .sm-p{
+	margin-bottom: 200px;
+}
+
+#products form .sub-btn {
+	display: block;
+	margin: 0 auto;
+	height: 70px;
+	width: 170px;
+	background-color: #ffeaa7;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.img-area {
+	background-color: #ffeaa7;
+	display: inline-flex;
+	width: 100px;
+	height: 100px;
+	justify-content:center;
+	align-items:center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#temp-imgs-wrap{
+	margin-bottom: 50px;
+}
+
+
+
+input[type="file"]{
+	display: none;
+}
+
+
+#app {
+  height: 100px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+#app select {
+	margin-left: 5px;
+	width: 200px;
+	height: 30px;
+}
+
+#msg-box{
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	margin: 30px 0;
+}
+
+#msg{
+	color: tomato;
+	width: 400px;
+	font-size: 17px;
+	display: flex;
+	justify-content: center;
+}
+
+

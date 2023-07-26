@@ -1,0 +1,56 @@
+<html xmlns:th="//www.thymeleaf.org">
+<body>
+	<form id="form-search">
+		<select name="columnName">
+			<option value="1">제목</option>
+			<option value="2">내용</option>
+			<option value="3">제목+내용</option>
+		</select> <input type="search" name="query" placeholder="검색어를 입력하세요">
+		<button type="button" id="info-board-search-btn" onclick="infoBoardSearch()">검색</button>
+	</form>
+	<section id="info-board-list-target">
+		<table id="info-board-table" class="board-wrap">
+			<thead>
+				<tr class="flex between">
+					<th>글번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>선택</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="flex between info-board-list" th:each="list:${list}">
+					<td><a th:href="|/board/${list.bno}|" th:text="${list.bno}"></a></td>
+					<td th:text="${list.subject}">제목</td>
+					<td th:text="${list.writer}">작성자</td>
+					<td><input type="checkbox" id="option1" name="options"
+						th:value="${list.bno}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<section th:unless="${pu.to<1}">
+	<div id="page-wrap" class="flex">
+	<ul th:if="${pu.from>1}">
+		<li th:value="${pu.from-1}"><a class="box" href="#">&lt;</a></li>
+	</ul>
+	<ol class="flex">
+		<li th:each="pno:${#numbers.sequence(pu.from,pu.to)}"
+			th:value="${pno}"><a class="box" href="#" th:text="${pno}"></a>
+		</li>
+	</ol>
+	<ul th:if="${pu.to < pu.tot}">
+		<li th:value="${pu.to+1}"><a class="box" href="#">&gt;</a></li>
+	</ul>
+</div>
+</section>
+<button onclick="authBoardBtnClicked()"class="btn btn-primary">게시글복구</button>
+<script type="text/javascript">
+	$("#page-wrap").find("a").click(function(e) {
+		e.preventDefault();
+		console.log($(this).parent().attr("value"));
+		btnSearchClicked($(this).parent().attr("value"));
+	});
+</script>
+	</body> 
+</html>

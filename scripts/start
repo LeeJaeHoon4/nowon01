@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# This script starts Apache Tomcat.
+
+TOMCAT_DIR="/usr/local/apache-tomcat-9.0.78/"
+
+# Check if Apache Tomcat is not running
+if ! pgrep -f "catalina" >/dev/null; then
+  echo "Starting Apache Tomcat..."
+  # Assuming you are in the Tomcat bin directory, execute the startup script.
+  # If you are outside the Tomcat bin directory, replace 'bin/startup.sh' with the correct path.
+  "$TOMCAT_DIR/bin/startup.sh"
+else
+  echo "Apache Tomcat is already running."
+fi

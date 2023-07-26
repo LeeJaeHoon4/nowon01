@@ -1,0 +1,56 @@
+<header>
+	<div>
+		<section class="header-section">
+			<h1>최상단 네비게이션</h1>
+			<div class="flex between wrap header-section-nav">
+				<div class="flex between">
+				<div>
+				</div>
+				<div>
+					<a href="/">메인 페이지</a>
+					<a href="/product/list">상품 목록</a>
+					<span sec:authorize="isAuthenticated()">
+						<a href="/product/payment-log">주문 페이지</a>
+					</span>
+					<span sec:authorize="isAuthenticated()">
+						<a sec:authorize="hasRole('USER')" href="/board/rest-main">자유게시판</a>
+					</span>
+					<span sec:authorize="isAuthenticated()">
+ 						<a sec:authorize="hasRole('USER')"href="/user/masterpage" >관리 페이지</a>
+					</span> 
+					<span sec:authorize="isAnonymous()"> 
+						<a href="/oauth2/authorization/google" id="google-social">구글로그인</a>
+					</span>
+					<span sec:authorize="isAnonymous()"> 
+						<a href="/oauth2/authorization/naver" id="naver-social">네이버로그인</a>
+					</span>
+					<span sec:authorize="isAnonymous()">
+						<a href="#"class="header-nav-login" data-url="/emart/login">로그인</a>
+						<a href="/emart/signup">회원가입</a>
+					</span>
+					<span sec:authorize="isAuthenticated()">
+						<form action="/logout" id="header-logout-form" method="post" style="display:inline-block;">
+								<i th:text="${#authentication.principal.Username}"></i>
+								<i>님 환영합니다</i>
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+							<button type="submit" id="header-logout-btn">로그아웃</button>
+						</form>
+					</span>
+				</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h1>헤더 메인 배너 및 메뉴</h1>
+			<div  id="header-main-banner" class="wrap" >
+				<ul class="flex center">
+					<li><a>점포찾기</a></li>
+					<li><a>전단광고</a></li>
+					<li><a class="header-logo main-color">NO1</a></li>
+					<li><a>이벤트</a></li>
+					<li><a>고객센터</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+</header>

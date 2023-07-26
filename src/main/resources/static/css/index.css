@@ -1,0 +1,364 @@
+@charset "UTF-8";
+@import url("/css/common.css");
+/* ****************** */
+/* 메인 플로팅 이미지 */
+/* ****************** */
+.main-float-img-div{
+	position: sticky;
+	top:40px;
+}
+
+.main-float-img{
+	width: 120px;
+	height:300px;
+	position: absolute;
+	right:100%;
+	margin-right: 2em;
+	
+}
+.main-float-img-item{
+	width:100%;
+	height:100%;
+
+}
+
+.main-float-img-item>a{
+	display:block;
+	width:100%;
+	height:100%;
+	background-image: url('/image/m-float.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* ****************** */
+/* 이미지슬라이드 - 메인 이미지 */
+/* ****************** */
+#m-img-slide .m-wrap{
+	width: 1263px;
+	margin: 0 auto;
+	height: 560px;
+	position: relative;
+}
+
+#m-img-slide .m-wrap .m-ol-wrap{
+	width: 1180px;
+	height: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.m-img-list{
+	width: calc(6*1180px);
+	height: 560px;
+	margin: 0 auto 0;
+	padding: 0;
+}
+
+.m-img-list li{
+	width: 100%;
+	height: 100%;
+}
+
+.m-img-list li a{
+	display: inline-block;
+	width: 1200px;
+	height: 100%;
+/* 	background-size: cover; */
+/* 	background-position: center; */
+	background-color: rgb(255, 221, 158);
+}
+
+
+/* ****************** */
+/* 이미지슬라이드 - 우상단 버튼 */
+/* ****************** */
+
+.m-slide-dots{
+	position: absolute;
+	right: 1px;
+	top: 10px;
+}
+
+.m-slide-dots .m-dots-wrap {
+	
+}
+
+.m-slide-dots .m-dots-wrap span{
+	display: block;
+	background-color: #a9a9a9;
+	border-radius:50%;
+    width: 7px;
+    height: 7px;
+    
+    cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 7px;
+    
+
+    
+}
+
+
+.m-btControl a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius:50%;
+	border: 1px solid black; 
+}
+
+a.m-dots-stop {
+/* 	display: none */
+	background-image: url("/image/m-pause.svg");
+	
+}
+
+a.m-dots-start {
+	background-image: url("/image/m-play.svg");
+	background-position: 5px;
+}
+
+.m-btControl{
+	display: none;
+}
+
+
+/* ****************** */
+/* 이미지슬라이드 - 양쪽 화살표 버튼 */
+/* ****************** */
+a.m-slide-prev, a.m-slide-next{
+	position: absolute;
+	display: block;
+    top: 50%;
+    margin-top: -19px;
+    width: 22px;
+    height: 38px;
+   
+	background-position: center;
+	background-repeat: no-repeat;
+    
+}
+
+a.m-slide-prev{
+	background-image: url("/image/m_left_arrows.png");
+	background-position: left;
+	left: 0;
+}
+
+a.m-slide-next{
+	background-image: url("/image/m_right_arrows.png");
+	right: 0;
+}
+
+
+
+/* ****************** */
+/* ****텍스트 슬라이드*** */
+/* ****************** */
+
+#m-text-slide > .m-wrap{
+	position: relative;
+    z-index: 10;
+    width: 900px;
+    overflow: hidden;
+    margin: -75px auto 0;
+    background: #fff;
+}
+
+#m-text-slide .m-inner-box{
+	position: relative;
+    width: 505px;
+    height: 67px;
+    padding: 0 65px 0 150px;
+    margin: 40px auto;
+    border-bottom: 2px solid #000;
+}
+
+#m-text-slide .m-inner-box > span {
+	position: absolute;
+	display: block;
+	top: 3px;
+    left: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#m-text-slide  .m-text-list {
+	height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#m-text-slide  .m-text-list .m-long-list{
+	width: 100000px;
+	transform: translateX(0px);
+}
+
+#m-text-slide  .m-text-list .m-long-list ul{
+	margin-top: 0;
+}
+
+#m-text-slide  .m-text-list .m-long-list ul li {
+	margin-right: 50px;
+	color: #595959;
+}
+
+#m-text-slide .m-btControl{
+	position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* ****************** */
+/* ****메인 득템찬스!*** */
+/* ****************** */
+
+#m-main-contents{
+	width: 980px;
+    margin: 0 auto;
+}
+
+#m-main-contents .m-chance{
+	margin: 100px auto 140px;
+}
+
+#m-main-contents .m-chance > span {
+	display: block;
+	margin-bottom: 40px;
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    line-height: 1;
+    font-weight: 700;
+}
+
+#m-main-contents .m-contents-box .m-box-cut {
+	display: flex;
+}
+
+#m-main-contents .m-contents-box .m-box-cut a{
+	width: 320px;
+	margin-right: 10px;
+}
+
+#m-main-contents .m-contents-box .m-box-cut a:hover{
+	scale : 1.1;
+	transition :scale .3s;
+}
+
+#m-main-contents .m-contents-box .m-box-cut a span{
+	display: block;
+    padding-top:50px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.m-box-cut img{
+	height: 316px;
+	width: 316px;
+}
+
+/* ****메인 즐거운 콘텐츠!*** */
+#m-main-contents .m-funny {
+	width: 100%;
+    margin: 100px auto;
+}
+
+#m-main-contents .m-funny > span {
+	display:block;
+	font-weight: 700;
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 40px;
+}
+
+#m-main-contents .m-funny > ol{
+	height: 512px;
+	width: 100%;
+	padding: 0;
+}
+#m-main-contents .m-funny > ol >li{
+	height: 100%;
+}
+
+#m-main-contents > div > div.m-funny > ol > li:nth-child(1) {
+	width: 645px;
+	margin-top: 16px
+}
+#m-main-contents > div > div.m-funny > ol > li:nth-child(2) {
+
+	width: 300px;
+}
+#m-main-contents > div.m-wrap > div.m-funny > ol > li.flex.column.between{
+		margin-left: 58px;
+}
+
+#m-main-contents .m-funny > ol a{
+	display: block;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#m-main-contents .m-funny > ol a:hover{
+	scale : 1.1;
+	transition :scale .3s;
+}
+
+
+#m-main-contents .m-funny > ol >li:nth-child(1) >a {
+	background-image: url("/image/m-funny01.jpg");
+	width:709px;
+	height: 484px;
+}
+#m-main-contents .m-funny > ol >li:nth-child(2) >a:nth-child(1) {
+	background-image: url("/image/m-funny02.jpg");
+	width:300px;
+	height: 230px;
+}
+#m-main-contents .m-funny > ol >li:nth-child(2) >a:nth-child(2) {
+	background-image: url("/image/m-funny03.jpg");
+	width:300px;
+	height: 230px;
+}
+
+/* ****************** */
+/* ****메인 득템찬스!*** */
+/* ****************** */
+
+#m-brand-link ul{
+	overflow: hidden;
+	padding-top: 10px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+#m-brand-link li:hover{
+	scale : 1.2;
+	transition :scale .3s;
+}
+
+#m-brand-link li > a{
+	opacity: 0.3;
+}
+
+#m-brand-link li:hover > a {
+	opacity: 1;
+}
+
+#m-brand-link li >div{
+	color: #a9a9a9;
+}
+
+#m-brand-link li:hover >div{
+	color: black;
+}
+
+.swiper{
+	height:100%;
+}

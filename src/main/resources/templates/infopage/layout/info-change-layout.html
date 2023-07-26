@@ -1,0 +1,45 @@
+<html xmlns:th="//www.thymeleaf.org">
+<body>
+	<div class="info-wrap">
+		<section>
+
+			<h2>비밀번호 변경</h2>
+			<form class="card" id="passChange-form">
+				<input class="list-group-item" name="password" type="password" placeholder="기존 비밀번호" id="password">
+				<input class="list-group-item" name="newPassword" type="password" id="newPassword"
+					placeholder="새로운 비밀번호"> 
+				<input class="list-group-item" name="newPasswordCheck" id="newPasswordC"
+					type="password" placeholder="새로운 비밀번호 확인">
+				<button class="btn btn-primary" id="passChange" type="button" onclick="passChangeBtnClicked()">변경하기</button>
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+			</form>
+			<h2>회원탈퇴</h2>
+			<form class="card">
+			<div class="form-check list-group-item">
+					<input class="form-check-input" type="checkbox" value="false"
+						id="flexCheckDefault" onchange="updateCheckboxValue(this)"> <label class="form-check-label"
+						for="flexCheckDefault">회원님의 기존 정보는 모두 삭제됩니다.</label>
+			</div>
+			<div class="form-check list-group-item">
+				<input class="form-check-input" type="checkbox" value="false"
+					id="flexCheckChecked" onchange="updateCheckboxValue(this)" > <label
+					class="form-check-label" for="flexCheckChecked">회원님의 기존 정보는 다시 회원가입시에도 복구가 불가합니다.</label>
+			</div>
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+			<button class="btn btn-danger " id="userDelete" type="button" onclick="userDeleteBtnClicked()">탈퇴하기</button>
+			</form>
+		</section>
+	</div>
+</body>
+<script type="text/javascript">
+
+function updateCheckboxValue(checkbox) {
+	if (checkbox.checked) {
+		checkbox.value = 'true';
+	} else {
+		checkbox.value = 'false';
+	}
+}
+
+</script>
+</html>

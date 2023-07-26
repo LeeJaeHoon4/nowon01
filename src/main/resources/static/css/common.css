@@ -1,0 +1,70 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+	font-family: 'Pretendard-Regular';
+	font-weight: 400;
+
+	margin:0;
+	padding:0;
+
+}
+
+li {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+a:link{
+	text-decoration: none;
+	color: #222;
+}
+a:active{
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: none;
+	color: #222;
+	
+}
+button{
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+input{
+	border: none;
+	outline: none;
+}
+
+h1{position: absolute; font: 0; left: -9999px}
+
+.main-color{
+	color: rgb(255, 193, 7);
+}
+
+
+.view-size{width: 1168px; margin: 0 auto;}
+.flex{display: flex;}
+.column{flex-direction: column;}
+.row{flex-direction: row;}
+.between{justify-content: space-between;}
+.around{justify-content: space-around;}
+.end{justify-content: flex-end;}
+.start{justify-content: flex-start;}
+.center{justify-content: center;}

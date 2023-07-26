@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.nowon.domain.board.dao.BoardMapper">
+	<select id="getListWithPagination" resultType="com.green.nowon.domain.board.dto.RestBoardDTO">
+		select * from board 
+		where is_show = true
+		order by bno DESC
+	</select>
+	
+	<select id="countAll" resultType="int">
+		select count(*) from board
+		where is_show = true
+	</select>
+	
+	<select id="findAllBySearch" resultType="com.green.nowon.domain.board.dto.RestBoardDTO">
+		select * from board
+		<where>
+			<if test="columnName !=0 and columnName == 1 or columnName == 3 ">
+				subject like CONCAT('%', #{query}, '%')
+			</if>
+			<if test="columnName !=0 and columnName == 2 or columnName == 3 ">
+				or content like CONCAT('%', #{query}, '%')
+			</if>
+			and is_show = true
+			order by bno DESC
+		</where>
+	</select>
+	
+	<select id="coutAllBySearch" resultType="int">
+		select count(*) from board
+		<where>
+			<if test="columnName !=0 and columnName == 1 or columnName == 3">
+				subject like CONCAT('%', #{query}, '%')
+			</if>
+			<if test="columnName !=0 and columnName == 2 or columnName == 3">
+				or content like CONCAT('%', #{query}, '%')
+			</if>
+			and is_show = true
+		</where>
+		
+	</select>
+	
+	<select id="getListWithReportCount" resultType="com.green.nowon.domain.board.dto.RestBoardDTO">
+		select * from board
+		<where>
+			is_show = false
+		    or report_count >= 20
+		</where>
+		order by bno DESC
+	</select>
+
+
+	<select id="findAllBySearchInfoBoard"
+		resultType="com.green.nowon.domain.board.dto.RestBoardDTO">
+		select * from board
+		<where>
+			<if test="columnName !=0 and columnName == 1 or columnName == 3 ">
+				subject like CONCAT('%', #{query}, '%')
+			</if>
+			<if test="columnName !=0 and columnName == 2 or columnName == 3 ">
+				or content like CONCAT('%', #{query}, '%')
+			</if>
+			and is_show = false
+		    or report_count >= 20
+			order by bno DESC
+		</where>
+	</select>
+	
+	<select id="countAllByReportCount" resultType="int">
+		select count(*) from board
+		<where>
+			<if test="columnName !=0 and columnName == 1 or columnName == 3">
+				subject like CONCAT('%', #{query}, '%')
+			</if>
+			<if test="columnName !=0 and columnName == 2 or columnName == 3">
+				or content like CONCAT('%', #{query}, '%')
+			</if>
+			and report_count >= 20
+			and deleted = false
+		</where>
+	</select>
+	
+</mapper>	

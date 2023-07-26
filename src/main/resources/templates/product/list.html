@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ /layout.html :: basic(~{this::head}, ~{this::main}) }">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/product/list.css">
+	<script type="text/javascript" src="/js/product/list.js"></script>
+</head>
+<body>
+	<main>
+		<h1>메인영역</h1>
+		<div class="wrap">
+			<section id="product-util">
+				<h1>상품 유틸 버튼</h1>
+				<th:block th:replace="~{/product/piece/product-util}" />
+			</section>
+   			<section id="category">
+   				<h1>카테고리</h1>
+   				<div class="wrap">
+   					<ul class="flex">
+	    				<li class="cate" th:each="i , iterStat : ${#numbers.sequence(1,5)}">
+	    					<a onclick="cateClicked(this)" onmouseenter="subCategories(this)"></a>
+	    					<div class="sub">
+	    						<!-- 서브카테고리가 들어갈 예정입니다 -->
+	    					</div>
+	    				</li>
+    				</ul>
+   				</div>
+   			</section>
+   			<section id="p-list">
+   				<h1>상품 목록</h1>
+   				<div class="wrap">
+   					<ul class="p-wrap flex">
+						<!-- 상품리스트가 들어갈 예정입니다 -->
+					</ul>
+					<div class="btn-wrap">
+						<button class="more-btn" data-cNo="" type="button" onclick="moreButton(this)">상품 더보기</button>
+					</div>
+   				</div>
+   			</section>
+			</div>
+		</main>
+	</body>
+</html>

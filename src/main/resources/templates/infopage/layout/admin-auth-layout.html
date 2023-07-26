@@ -1,0 +1,130 @@
+<html xmlns:th="//www.thymeleaf.org">
+	<body>
+	<div id="auth-wrap">
+		
+		<div id="auth-btn-ol" class="flex end">
+			<input type="text" id="auth-id-input" placeholder="이메일을 입력하세요"> 
+			<button type="button" id="auth-id-list-btn" onclick="authEmailBtnClicked()">리스트 저장</button>
+		</div>
+		<ol id="auth-target">
+		</ol>
+		<button onclick="authBtnClicked()" id="auth-grant-btn">권한 부여</button>
+	</div>
+	</body>
+	  <script>
+	    function authEmailBtnClicked() {
+	        if ($("#auth-target li").length > 3) {
+	        	Swal.fire({
+					icon: 'error',
+					title: '계정 권한 부여는 한번에 10개만 가능합니다.'
+				})
+	            return;
+	        }
+	        var input = document.getElementById('auth-id-input');
+	        if(isBlank(input.value)){
+	        	Swal.fire({
+					icon: 'error',
+					title: '비어있는 문자열은 입력 할 수 없습니다.'
+				})
+	        	return;
+	        }
+	    	var token = $("meta[name='_csrf']").attr("content");
+	    	var header = $("meta[name='_csrf_header']").attr("content");
+	    	$(document).ajaxSend(function(e, xhr, options) {
+	    		xhr.setRequestHeader(header, token);
+	    	});	
+	    	var email =input.value;
+	        $.ajax({
+	        	method:"POST",
+	        	url:"/info/auth/mailCheck",
+	        	data:{"email":email},
+	        	success:function(e){
+	    				if (e.result == "관리자 부여를 위해 list로 이동 시킵니다.") {
+	    					Swal.fire({
+	    						title: email+'을 관리자 부여를 위한 list로 이동시킵니다.',
+	    						text: "관리자 부여를 할 이메일인지 한번 더 확인 해 주세요",
+	    						icon: 'info',
+	    						showCancelButton: true,
+	    						confirmButtonColor: '#3085d6',
+	    						cancelButtonColor: '#d33',
+	    						confirmButtonText: '이동하기',
+	    						cancelButtonText: '취소',
+	    						reverseButtons: true, // 버튼 순서 거꾸로
+	    					}).then((result) => {
+	    						if (result.isConfirmed) {
+	    							Swal.fire({
+	    								icon: 'info',
+	    								title: 'list로 이동합니다.',
+	    							}).then((response)=>{
+	    								var target = document.getElementById('auth-target');
+		 	 	        	        	var listItem = document.createElement('li');
+		 	 	        	        	listItem.innerText = input.value;
+		 	 	        	        	target.appendChild(listItem);
+		 	        					input.value = '';
+	    							})
+	    						}
+	    						
+	    					})
+	    				}else{
+	    					Swal.fire({
+								icon: 'error',
+								title: '이미 관리자인 회원입니다.'
+							})
+	        				 input.value = '';
+	        			}
+	        		},
+	        	error:function(xhr){
+	        		//service단에서 던지는 error메세지는 자바 콘솔에 표시되는데 이걸 html에서 error의
+	        		//콜백에서 alert등을 하고 싶다면 xhr.responseJSON.message를 쓰자
+	        		Swal.fire({
+	    								icon: 'error',
+	    								title: xhr.responseJSON.message	
+	    							})
+	        		input.value = '';
+	        	}
+	        	});
+
+	    }
+	    
+	    function isBlank(str) {
+	        return (!str || /^\s*$/.test(str));
+	    }
+	    
+	    //권한부여 누르면 컨트롤러로 비동기로 데이터전송
+	    function authBtnClicked(){
+	    	var target = $("#auth-target");
+	    	var list = target.children("li");
+	    	var data = [];
+	    	for(var i = 0; i < list.length; i++){
+	    		data.push(list[i].innerText);
+	    	}
+	    	console.log(data);
+	    	var data ={"email" :data};
+	    	var token = $("meta[name='_csrf']").attr("content");
+	    	fetch("/info/auth/adminGranted",{
+	    		method:"POST",
+	    		headers:{
+	    			'content-type':'application/json',
+	    			'X-CSRF-TOKEN': token
+	    		},
+	    		body:JSON.stringify(data)
+	    	})
+	    	.then(response =>{
+	    		if (response.ok) {
+	    			Swal.fire({
+						icon: 'success',
+						title: '관리자 부여를 완료 했습니다.'
+					})
+	                target.empty();
+	                data = [];
+	            } else {
+	                throw new Error("Error occurred during the fetch request.");
+	            }
+	        })
+	        .catch(error => {
+	            console.log(error);
+	        });
+	    	
+	    }
+  </script>
+</html>

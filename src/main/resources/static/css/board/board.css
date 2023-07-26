@@ -1,0 +1,131 @@
+@import url("/css/common.css");
+
+.board-wrap{width:1000px; margin:0 auto; padding-bottom: 20px;}
+
+section{
+	width: 100%;	
+}
+
+#list-btn{
+	width: 4em;
+    height: 3em;
+	background-color: #a9a9a9;
+	border: 1px solid #a9a9a9;
+	border-radius: 3px;
+}
+
+#write-btn{
+    margin-left: 1em;
+    width: 7em;
+	height:3em;
+	background-color: black;
+	color:white;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+
+#board-table>thead>tr th:nth-child(1) {
+	width:30%;
+}
+#board-table>thead>tr th:nth-child(2) {
+	width:100%;
+}
+#board-table>thead>tr th:nth-child(3) {
+	width:30%;
+}
+#board-table>thead>tr th:nth-child(4) {
+	width:30%;
+}
+#board-table>thead>tr th:nth-child(5) {
+	width:30%;
+}
+
+#board-table>tbody>tr td:nth-child(1) {
+	width:30%;
+}
+#board-table>tbody>tr td:nth-child(2) {
+	width:100%;
+}
+#board-table>tbody>tr td:nth-child(3) {
+	width:30%;
+}
+#board-table>tbody>tr td:nth-child(4) {
+	width:30%;
+}
+#board-table>tbody>tr td:nth-child(5) {
+	width:30%;
+}
+
+#board-table>tbody>tr td{
+	text-align: center;
+}
+
+.board-list{
+	    border-bottom: 1px solid #ebebeb;
+	    height: 2em;
+}
+
+#form-search{
+	position: relative;
+	left:10%;
+	height: 38px;
+    overflow: hidden;
+    width: 480px;
+}
+
+#form-search>select{
+	width: 120px;
+    height: 38px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+}
+
+#form-search>input{
+	width: 230px;
+    height: 38px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#btn-search{
+	width: 60px;
+    height: 38px;
+    border: 1px solid #ccc;
+}
+
+.box{
+	width: 28px;
+    height: 28px;
+    font-weight: bold;
+    color: #4b7fd8;
+    border: 1px solid #f0f0f0;
+}
+
+#title-input {
+	width: 230px;
+    height: 38px;
+    padding: 0 5px;
+    border-bottom: 1px solid #ccc !important;
+    box-sizing: border-box;
+}
+
+#summernote-save-btn{
+	float:right;
+	padding: 0 15px;
+    width: auto !important;
+    height: 30px !important;
+	cursor: pointer;
+	transition: .2s;
+	color:white;
+    background: #444 !important;
+    border: 1px solid #303030 !important;
+    color: #fff;
+}
+#board-table>thead>tr{
+	text-align: center;
+}
+.board-list{
+	height: 3em;
+    padding: 0.8em 0;
+}

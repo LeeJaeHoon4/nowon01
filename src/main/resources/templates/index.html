@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ 	  xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ /layout :: basic(~{this::head}, ~{this::main}) }">
+    <head>
+        <meta charset="UTF-8">
+        <title>1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet"  href="/css/index.css">
+        <script src="/js/index/index_main.js"></script>
+    </head>
+    <body>
+    	<main>
+    		<h1>메인영역</h1>
+	    	<div class="m-wrap">
+	    		<section id="m-img-slide">
+	    			<h1>이미지슬라이드</h1>
+	    			<div class="m-wrap">
+	    				<div class="m-ol-wrap">
+		    				<ol class="m-img-list flex">
+								<li class="item" >
+									<a href="#"></a>
+								</li>
+								</th:block>
+		    				</ol>
+		    			</div>
+	    				<!-- 이미지 슬라이드 우상단 버튼 -->
+	    				<div class="m-slide-dots">
+	    					<div class="m-dots-wrap">
+	    						<span></span>
+	    						<span></span>
+	    						<span></span>
+	    						<span></span>
+	    						<span></span>
+	    						<span></span>
+	    					</div>
+	    					<div class="m-btControl">
+		    					<a class="m-dots-stop" href="#"></a>
+		    					<a class="m-dots-start" href="#"></a>
+		    				</div>
+	    				</div>
+	    				<!-- 이미지 슬라이드 양쪽 버튼들 -->
+	    				<a class="m-slide-prev" href="#"></a>
+	    				<a class="m-slide-next" href="#"></a>
+	    			</div>
+	    		</section>
+	    		<section id="m-text-slide">
+	    			<h1>텍스트 슬라이드</h1>
+	    			<div class="m-wrap">
+	    				<div class="m-inner-box">
+	    					<span>기분좋은 혜택</span>
+	    					<div class="m-text-list">
+	    						<div class="flex m-long-list">
+		    						<ul class="flex">
+		    							<li>우리동네 대형가전 상품권 증정</li>
+		    							<li>우리동네 초고속 블렌더 3만원 할인</li>
+		    							<li>우리동네×우리동네 멀티형 에어컨 30만원 할인</li>
+		    						</ul>
+		    						<ul class="flex">
+		    							<li>우리동네 대형가전 상품권 증정</li>
+		    							<li>우리동네 초고속 블렌더 3만원 할인</li>
+		    							<li>우리동네×우리동네 멀티형 에어컨 30만원 할인</li>
+		    						</ul>
+	    						</div>
+	    					</div>
+	    					<div class="m-btControl">
+		    					<a class="m-dots-stop" href="#"></a>
+		    					<a class="m-dots-start" href="#"></a>
+	    					</div>
+	    				</div>
+	    			</div>
+	    		</section>
+	    		<section id="m-main-contents">
+	    		<!-- 플로팅 이미지 -->
+	    		<div class="main-float-img-div">
+	    		<ul class="main-float-img">
+	    			<li class="main-float-img-item">
+	    				<a href="#">
+	    				</a>
+	    			</li>
+	    		</ul>
+	    		</div>
+	    		<!-- 플로팅 이미지 끝 -->
+	    			<h1>메인컨텐츠</h1>
+	    			<div class="m-wrap">
+	    				<div class="m-chance">
+	    					<span>금주의 득템 찬스!</span>
+	    					<div class="m-contents-box">
+    							<div class="m-box-cut">
+    								<a href="#">
+    									<img src="/image/m-chance01.jpg" alt>
+    									<span>우리동네 최대<br>30%할인 카드!</span>
+    								</a>
+    								<a href="#">
+    									<img src="/image/m-chance02.jpg" alt>
+    									<span>우리동네에서 만나는<br>우리동네 마일리지</span>
+    								</a>
+    							</div>
+	    					</div>
+	    				</div>
+	    				<div class="m-funny">
+	    					<span>언제 어디서나 즐거운 콘텐츠</span>
+	    					<ol class="flex between">
+	    						<li>
+	    							<a href="#"></a>
+	    						</li>
+	    						<li class="flex column between">
+	    							<a href="#"></a>
+	    							<a href="#"></a>
+	    						</li>
+	    					</ol>
+	    				</div>
+	    			</div>
+	    		</section>
+	    		<section id="m-brand-link">
+	    			<h1>하단 브랜드 링크 메뉴</h1>
+	    			<div class="m-wrap view-size">
+	    				<ul class="flex around	">
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_01.png" alt></a>
+	    					</li>
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_02.png" alt></a>
+	    					</li>
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_03.png" alt></a>
+	    					</li>
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_04.png" alt></a>
+	    					</li>
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_05.png" alt></a>
+	    					</li>
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_06.png" alt></a>
+	    					</li>
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_07.png" alt></a>
+	    					</li>
+	    					<li>
+	    						<a href="#"><img src="/image/m_brand_08.png" alt></a>
+	    					</li>
+	    				</ul>
+	    			</div>
+	    		</section>
+	    	</div>
+    	</main>
+    </body>
+</html>
+

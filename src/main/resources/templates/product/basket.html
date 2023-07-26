@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ /layout.html :: basic(~{this::head}, ~{this::main}) }">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/product/basket.css">
+	<script type="text/javascript" src="/js/product/basket.js"></script>
+	<script type="text/javascript" src="/js/product/kakao.js"></script>
+	 <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+<!-- <!-- default header name is X-CSRF-TOKEN --> -->
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    
+</head>
+<body>
+	<main>
+		<h1>메인영역</h1>
+		<th:block th:with="total=0"></th:block>
+		<div class="wrap">
+			<div class="tit">
+				<p>장바구니</p>
+			</div>
+			<hr>
+			<section id="prodict-info">
+				<h1>상품영역</h1>
+				<div class="wrap">
+					<ul id="product-wrap">
+					
+						<li class="p-list flex">
+							<p class="p-name">상품명</p>
+							<p class="p-img">상품 이미지</p>
+							<p class="p-sprice">상품 개당 가격</p>
+							<p class="p-count" >상품 개수</p>
+							<p class="p-wprice">총계</p>
+						</li>
+						
+						<!-- 상품 -->
+						<li class="p-list flex list-cal" th:each="dto:${list}">
+							<p class="p-name" th:text="${dto.title}">상품명</p>
+							<p class="p-img"th:style="|background-image: url('${dto.imgUrl}')|"></p>
+							<p class="p-sprice" th:text="|${dto.price} 원|">상품 개당 가격</p>
+							<p class="p-count" th:text="${dto.count}">상품 개수</p>
+							<div id="arrows">
+								<div class="up-arrows" onclick="count(this)">1</div>
+								<div class="down-arrows" onclick="count(this)">-1</div>
+								<input class="vno" type="hidden" th:value="${dto.no}">
+							</div>
+							<p class="p-wprice"></p>
+							<form class="delete-form" sec:authorize="hasRole('ROLE_USER')" th:action="|/product/basket/${dto.no}|" method="post">
+								<button type="submit">삭제</button>
+								<input type="hidden" name="_method" value="delete">
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+							</form>
+							<form class="delete-form" sec:authorize="isAnonymous()" th:action="|/product/basket/temp/${dto.no}|" method="post">
+								<button type="submit">삭제</button>
+								<input type="hidden" name="_method" value="delete">
+								<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+							</form>
+						</li>
+						
+					</ul>
+				</div>
+			</section>
+			<section id="result">
+				<h1>합계 및 버튼 영역</h1>
+				<div class="wrap flex">
+					<div class="total">
+						<p class="p-total"></p>
+					</div>
+					<div>
+						<div sec:authorize="isAnonymous()">
+							<input type="hidden" class="flag" value="flag">
+							<button class="header-nav-login" data-url="/emart/login" type="button" >로그인 하기</button>
+						</div>
+						<form  action="#" sec:authorize="!isAnonymous()">
+							<input class="total-pay" type="hidden">
+							<button type="button" onclick="requestPay()">결제하기</button>
+						</form>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+</body>
+</html>

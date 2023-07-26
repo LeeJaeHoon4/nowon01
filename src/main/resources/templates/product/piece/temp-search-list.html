@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<div th:if="${list.isEmpty}" class="temp-product-list">
+		<p>해당하는 항목이 없습니다.</p>
+	</div>
+	<li th:each="dto:${list}" class="temp-product-list">
+		<a class="flex" th:href="|/product/detail/${dto.pno}|">
+			<div class="temp-product-img" th:style="|background-image: url('${dto.imgUrl}')|"></div>
+			<div class="flex">
+				<p th:text="${dto.title}">상품명</p>
+				<p th:text="|${dto.price}원|">가격</p>
+			</div>
+		</a>
+	</li>
+</html>

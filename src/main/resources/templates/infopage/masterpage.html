@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ 	  xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ /layout.html :: basic(~{this::head}, ~{this::main}) }">
+    <head>
+        <meta charset="UTF-8">
+        <title>1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet"  href="/css/index.css">
+        <link rel="stylesheet"  href="/css/infopage/masterpage.css">
+        <link rel="stylesheet"  href="/css/infopage/admin-auth-layout.css">
+        <link rel="stylesheet"  href="/css/infopage/info-change-layout.css">
+        <link rel="stylesheet"  href="/css/infopage/welcome.css">
+        <link rel="stylesheet"  href="/css/infopage/info-board.css">
+        <link rel="stylesheet"  href="/css/board/board.css">
+        <script src="/js/index/index_main.js"></script>
+        <script src="/js/info/infopage.js"></script>
+    </head>
+    <body>
+    	<main>
+    		<h1>메인영역</h1>
+	    	<div class="m-wrap">
+	    	<div class="view-size">
+			<section>
+				<div class="board-wrap center" id="infopage-title">
+					<h2>관리자 페이지 입니다</h2>
+				</div>
+					<section class="flex">
+							<div id="side-menu">
+							<ul>
+								<li>
+									<button class="infopage-menu" sec:authorize="!hasRole('MASTER') and hasRole('USER')" onclick="infoControl(this)" id="infoControl-btn">내 정보 관리</button>
+										<div id="sub">
+
+										</div>
+								</li>								
+								<li>
+									<button class="infopage-menu" sec:authorize="hasRole('ADMIN')" onclick="boardControl(1)" id="boardControl-btn">게시글관리</button>
+								</li>								
+								<li>
+									<button class="infopage-menu" sec:authorize="hasRole('MASTER')"  onclick="authControllPage(1)">관리자권한부여</button>
+								</li>
+							</ul>
+							</div>
+						<div id="target">
+
+						</div>
+					</section>
+				</div>
+			</section>
+		</div>
+	    	</div>
+    	</main>
+    </body>
+</html>
+

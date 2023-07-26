@@ -1,0 +1,24 @@
+<div class="wrap flex">
+	<div class="search-wrap">
+		<form action="">
+			<input id="search-box" type="text" oninput="myFunction()">
+			<button type="button" onclick="searchProducts()">검색</button>
+		</form>
+		<div id="temp-product-wrap">
+			<ul class="temp-product-ul">
+				<!-- 임시 상품 목록이 들어옵니다 -->
+			</ul>
+		</div>
+	</div>
+	<div sec:authorize="hasRole('ROLE_Saler')">
+			<a href="/product/write">상품등록</a>
+	</div>
+	<div>
+		<form action="/product/basket2" sec:authorize="isAnonymous()">
+			<button type="submit">비회원장바구니</button>
+		</form>
+		<form action="/product/basket" sec:authorize="hasRole('ROLE_USER')">
+			<button type="submit">회원장바구니</button>
+		</form>
+	</div>
+</div>

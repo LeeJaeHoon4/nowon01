@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ 	  xmlns:sec="//www.thymeleaf.org/extras/spring-security"
+	th:replace="~{ /layout.html :: basic(~{this::head}, ~{this::main}) }">
+    <head>
+        <meta charset="UTF-8">
+        <title>1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/board/board.css">
+    </head>
+<body>
+	<main>
+		<div class="view-size">
+			<section>
+				<div class="board-wrap flex center">
+					<h2>게시판 페이지 입니다</h2>
+				</div>
+			</section>
+			<section>
+				<div class="board-wrap flex end">
+					<a href="/board/main"><button id="list-btn">글목록</button></a>
+					<a href="/board/write"><button id="write-btn">글쓰기</button></a>
+				</div>
+			</section>
+			<section>
+				<div class="board-wrap flex center">
+				<table id="board-table" class="board-wrap">
+					<thead>
+						<tr class="flex between">
+							<th>글번호</th>
+							<th>작성자</th>
+							<th>등록일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="flex between" th:each="list:${list}">
+							<td>
+								<a  th:href="|/board/${list.bno}|" th:text="${list.bno}"></a>
+							</td>
+							<td th:text="${list.writer}">작성자</td>
+							<td th:text="${list.createdDate.toLocalDate()}">등록일</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</section>
+		</div>
+	</main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

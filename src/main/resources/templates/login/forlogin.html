@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- 		로그인 팝업창 띄우면서 상품list페이지로 리다이렉트 -->
+		<script type="text/javascript">
+			document.addEventListener("DOMContentLoaded",function(e){
+				alert("로그인이 필요 합니다");	
+				var dataFromController = $("#target").val();
+				console.log(dataFromController);
+				sessionStorage.setItem("target", dataFromController);
+				sessionStorage.setItem("flag",true);
+			 	var url = "/emart/login";
+				window.open(url,"_blank","width=595px, height=580px");
+			});
+		</script>
+	</head>
+	<body>
+		<input type="hidden" th:value="${target}" id="target">
+	</body>
+</html>

@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+main{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+main>.wrap{
+	width: 100%;
+}
+
+.page-title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.page-title > p{
+	font-size: 40px;
+	font-weight: bold;
+}
+
+/* 리스트 섹션 전체 */
+#payment-list{
+	width: 700px;
+	margin: 150px auto;
+}
+
+/***** 하나의 주문 단위 요소들 *******/
+/* 주문 ul */
+.order-wrap{
+	margin-bottom: 200px;
+	position: relative;
+}
+
+
+/** 리스트 상단 : 주문날짜, 주문번호 **/
+.p-list-title{
+	display: flex;
+}
+/* 주문날짜 */
+.p-list-title .p-data{
+	font-size: 30px;
+}
+/* 주문번호 */
+.p-list-title .p-num{
+	font-size: 20px;
+	margin-left: 250px;
+	display: flex;
+	align-items: center;
+}
+
+/** 리스트 하단 : 총계 **/
+.total-wrap{
+	display: flex;
+	justify-content: flex-end;
+	font-size: 30px;
+	
+}
+
+
+
+/***** 하나의 리스트 단위 요소들 *****/
+
+/* 모든 각각의 리스트들 */
+.p-list{
+	display: flex;
+	margin: 50px 0;	
+}
+
+
+/* 리스트 이미지 */
+.p-img{
+	width: 150px;
+	height: 150px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 1px dotted #e9e9e9;
+	border-radius: 5px;
+}
+
+
+.info-wrap{
+	margin-left: 50px;
+	width: 470px;
+}
+
+.small-wrap{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.small-wrap p{
+	width: 33%;
+	font-size: 20px;
+}
+
+/* 소계 */
+.small-total{
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 50px;
+	margin-right: 20px;
+	font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

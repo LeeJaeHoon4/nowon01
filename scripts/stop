@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# This script stops Apache Tomcat gracefully.
+
+TOMCAT_DIR="/usr/local/apache-tomcat-9.0.78/"
+
+# Check if Apache Tomcat is running
+if pgrep -f "catalina" >/dev/null; then
+  echo "Stopping Apache Tomcat..."
+  # Assuming you are in the Tomcat bin directory, execute the shutdown script.
+  # If you are outside the Tomcat bin directory, replace 'bin/shutdown.sh' with the correct path.
+  "$TOMCAT_DIR/bin/shutdown.sh"
+else
+  echo "Apache Tomcat is not running."
+fi

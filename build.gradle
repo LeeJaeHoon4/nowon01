@@ -1,0 +1,91 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '2.7.13'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.green'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+/*
+jar{
+    enalbed=false
+}
+bootJar{
+    
+    enabled=true
+}
+*/
+war{
+    enabled= true;
+    archiveName("NO1.war");
+}
+
+bootWar{
+    enabled=false;
+}
+
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/com.google.zxing/core
+	//qr코드 생성을 위한 zxing (google) 라이브러리
+	implementation 'com.google.zxing:core:3.3.3'
+	//redis dependency 추가
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	//소셜 로그인이 OAuth2 방식의 보안을 사용함으로 dependency를 추가 해주자
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	//xss예방 - 네이버 filter
+	implementation 'com.navercorp.lucy:lucy-xss-servlet:2.0.0'
+	implementation 'com.navercorp.lucy:lucy-xss:1.6.3'
+	//StringEscapeUtils 를 사용하기 위해 commons-text 의존성 추가
+	implementation 'org.apache.commons:commons-text:1.8'
+	//mybatis $사용시 sql injection방어를 위한 라이브러리
+	implementation 'com.github.rkpunjal.sqlsafe:sql-injection-safe:1.0.2'
+	//webjar
+	implementation 'org.webjars:webjars-locator-core'
+	//swagger랑 actuator랑 충돌납니다. 둘다 컨트롤러에 어노테이션 처리해주는 역할이라그럼 
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.13'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
+	// cloud-config-client 쪽에 삽입해야 하는데 버전 명시안하면 에러나는거 같음
+	implementation 'org.springframework.cloud:spring-cloud-starter-config:3.1.8'
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

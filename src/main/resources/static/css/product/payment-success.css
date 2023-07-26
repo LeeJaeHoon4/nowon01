@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@import url("/css/common.css");
+
+
+.wrap{
+	width: 1000px !important;
+}
+
+.complete-wrap{
+	display: flex;
+	justify-content: center;
+	margin: 150px 0;
+}
+
+.complete-wrap > span{
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.btn-wrap{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 150px;
+}
+
+.btn-wrap>div{
+	display: flex;
+	justify-content: center;
+	margin: 0 40px;
+	font-size: 30px;
+	
+	height: 70px;
+	width: 300px;
+}
+
+.btn-wrap>div:hover>a{
+	color: #FFCD28;
+}
+
+.btn-wrap>div>a{
+	display:flex;
+	align-items: center
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

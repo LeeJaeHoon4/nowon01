@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<section>
+<table id="board-table" class="board-wrap">
+	<thead>
+		<tr class="flex between board-list">
+			<th>글번호</th>
+			<th>작성자</th>
+			<th>제목</th>
+			<th>등록일</th>
+			<th>조회수</th>
+		</tr>
+	</thead>
+	<tbody> 
+		<tr class="flex between board-list" th:each="list:${list}">
+			<td>
+			<a th:href="|/board/${list.bno}|" th:text="${list.bno}"></a>
+			</td>
+			<td th:text="${list.writer}">작성자</td>
+				<td>
+					<a th:href="|/board/${list.bno}|"  th:if="${#strings.length(list.subject) >= 8}" th:text="${#strings.substring(list.subject, 0, 8) + '...'}"></a>
+					<a th:href="|/board/${list.bno}|"  th:if="${#strings.length(list.subject) < 8}" th:text=${list.subject}></a>
+				</td>
+				<td>
+					<span
+						th:if="${list.createdDate.toLocalDate() == T(java.time.LocalDate).now()}"
+						th:text="${#temporals.format(list.createdDate, 'HH:mm')}"> 
+					</span>
+					<span
+						th:if="${list.createdDate.toLocalDate() != T(java.time.LocalDate).now()}"
+						th:text="${#temporals.format(list.createdDate, 'MM-dd')}">
+					</span>					
+				</td>
+				<td th:text="${list.readCount}">조회수</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+<section>
+<div id="page-wrap" class="flex" th:unless="${pu.to<1}">
+	<ul th:if="${pu.from>1}">
+		<li th:value="${pu.from-1}"><a class="box" href="#">&lt;</a></li>
+	</ul>
+	<ol class="flex">
+		<li th:each="pno:${#numbers.sequence(pu.from,pu.to)}"
+			th:value="${pno}"><a class="box" href="#" th:text="${pno}"></a>
+		</li>
+	</ol>
+	<ul th:if="${pu.to < pu.tot}">
+		<li th:value="${pu.to+1}"><a class="box" href="#">&gt;</a></li>
+	</ul>
+</div>
+</section>
+<script type="text/javascript">
+	$("#board-list").find($("#page-wrap")).find("a").click(function(e) {
+		e.preventDefault();
+		console.log($(this).parent().attr("value"));
+		btnSearchClicked($(this).parent().attr("value"));
+	});
+</script>
+</html>

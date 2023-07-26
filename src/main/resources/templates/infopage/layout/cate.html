@@ -1,0 +1,9 @@
+<html xmlns:th="//www.thymeleaf.org">
+	<body>
+		<ul id="sub-target">
+			<li th:each="list:${cate}">
+				<a th:href="|#|" th:text="${list.cateName}"></a>
+			</li>
+		</ul>
+	</body>
+</html>

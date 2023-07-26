@@ -1,0 +1,29 @@
+@import url("/css/common.css");
+h2{
+	text-align: center;
+}
+#side-menu{
+	height: 800px;
+	width: 25%;
+	background-color: #95a19c;
+}
+#side-menu ul li{
+	display: block;
+    height: 34px;
+    margin: 10px 0px;
+    text-align: center;
+    position: relative
+}
+#target{
+	position:relative;
+	height:800px;
+	width: 70%;
+}
+
+#sub{
+ position: absolute;
+    left: 238px;
+    width: 100%;
+    background-color: #95a19c;
+    top:-10px;
+}

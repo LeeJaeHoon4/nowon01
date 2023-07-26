@@ -1,0 +1,194 @@
+@charset "UTF-8";
+@import url('/css/common.css');
+
+
+#view{
+	width: 710px;
+	margin: 0 auto;
+}
+
+/***************************************************************/
+/*************************스위치 블럭******************************/
+/***************************************************************/
+
+/* 스위치 블럭 묶음 */
+#switch .switch-wrap{
+	width: 710px;
+	height: 54px;
+	display: flex;
+	margin: 80px 0 30px;
+	
+}
+
+#switch .switch-wrap span{
+	font-weight: bold;
+}
+
+/* 양쪽 스위치 블럭 */
+.switch-wrap .switch-block {
+  width: 350px;
+  height: 100%;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: white;
+  color: #565656;
+  cursor: pointer;
+}
+
+/* 왼쪽 스위치 블럭 */
+#consumer-switch > .switch-block {
+	margin-right: 10px;
+}
+
+/* 까만 스위치 블럭 */
+.switch-wrap .tr-down {
+  background-color: #565656 !important;
+  color: white !important;
+}
+
+
+
+#switch  span{
+	display: block;
+}
+
+#consumer-switch > div > span:nth-child(1){
+	margin: 10px 0 0 0;
+}
+
+#saler-switch > div > span {
+	height: 20px;
+	margin: 15px 0;
+}
+
+#consumer-switch > div > span:nth-child(2){
+	font-size: 10px;
+}
+
+
+/* 삐죽 내민 삼각형 */
+.tr-down::after{
+	margin: 0 auto;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid #565656;
+}
+
+
+/***************************************************************/
+/*************************정보 입력란******************************/
+/***************************************************************/
+
+
+/* input + label 인 li */
+#form-wrap .info-wrap{
+	width: 710px;
+}
+
+#form-wrap .info-wrap li{
+	height: 120px;
+	width: 100%;
+}
+
+/* label */
+#form-wrap .info-wrap label{
+	display: block;
+	width: 110px;
+    text-align: left;
+    letter-spacing: -0.45px;
+    line-height: 60px;
+    height: 60px;
+    margin-right: 17px;
+    margin-left: 10px;
+}
+
+/* input  */
+#form-wrap .info-wrap input{
+	display: block;
+	border: 1px solid #e9e9e9;
+	border-radius: 6px;
+	width:100%;
+	height:60px;
+	font-size: 16px;
+	padding-left: 10px;
+	
+}
+
+/* 경고문 span */
+#form-wrap .info-wrap span{
+	display: none;
+	color: red;
+}
+
+
+/* 휴대폰 인증 버튼 */
+.p-wrap{
+	display: flex;
+	justify-content: space-between;
+}
+
+#form-wrap .info-wrap .li-phone a{
+	display: inline-block;
+	height: 63px;
+	width : 130px;
+	background-color: #eeeeee;
+	border-radius: 6px;
+	border: 1px solid #E0E0E0;
+	color: #6b6b6b;
+	text-align: center;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 60px;
+}
+
+/* 휴대폰 입력란 */
+#user-phn, #saler-phn {
+	display: inline-block !important;
+	width: 550px !important;
+}
+/*QR코드 올 li세팅*/
+#QRCode-li{
+	display:none;
+	text-align:center;
+	align-content:center;
+	margin:1em 0;
+	height:200px !important;
+}
+/* 가입 버튼 */
+.su-btn {
+	margin-top: 50px;
+	cursor: pointer;
+}
+
+#user-id-check-btn{
+	height:60px;
+}
+#saler{
+	display: none;
+}
+
+.info-wrap>li:first-child{
+	padding-top:60px;
+}
+#user-id{
+	margin-right: 10px;
+}
+#user-id-check-vlaue{
+	height:60px !important;
+}
+
+#user-id-not-regex{
+	display: none;
+}
+
+#saler-id-li{
+	
+}

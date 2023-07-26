@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{ /layout.html :: basic(~{this::head}, ~{this::main}) }">
+<head>
+<meta charset="UTF-8">
+<title>1</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/login/signup.css">
+
+<!-- include libraries(jQuery, bootstrap) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<!-- 		<!-- default header name is X-CSRF-TOKEN --> -->
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+		
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/product/write.css">
+<script type="text/javascript" src="/js/product/write.js"></script>
+</head>
+<main>
+	<h1>메인 영역</h1>
+	<div class="wrap">
+		<section id="products">
+			<h1>s3를 이용한 상품등록</h1>
+			<div class="wrap">
+				<form action="/product" method="post" onsubmit="return checkOk()">
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+					<p>
+						<label for="title">제품명</label> <input type="text" name="title"
+							id="title" placeholder="제품명을 입력하세요.">
+					</p>
+					<p>
+						<label for="price">제품 가격</label> <input type="text" name="price"
+							id="price" placeholder="제품 가격을 입력하세요.">
+					</p>
+					<p>
+						<label for="simple">간단 설명란</label> <input type="text"
+							name="simple" id="simple"
+							placeholder="상품에 대한 간단한 설명을 입력하세요(30자 제한)" maxlength="30">
+					</p>
+					<label>카테고리 선택</label>
+					<div id="app">
+						<select name="bigcate"></select> 
+						<select name="smallcate" class="s-cate"></select>
+					</div>
+					<label for="temp-imgs-wrap">이미지 첨부란</label>
+					<p id="temp-imgs-wrap">
+						<span> 
+							<label for="def" class="img-area">+</label> 
+							<input type="file" id="def" name="imgs" onchange="tempUpload(this)">
+							<input type="hidden" class="temp-key" name="tempKey">
+						</span>
+					</p>
+					<p class="sm-p">
+						<label for="summernote">상세 설명란</label>
+						<textarea id="summernote" name="content"></textarea>
+					</p>
+					<div id=msg-box>
+						<span id="msg"></span>
+					</div>
+					<button class="sub-btn" type="submit">상품 등록</button>
+				</form>
+			</div>
+		</section>
+	</div>
+</main>
+</html>
+
